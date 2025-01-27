@@ -9,12 +9,35 @@ export const matchCases = (editor, currentLine) => {
 		if(!headingMatchCase) return;
 
 		const count = (headingMatchCase[0].match(/#/g) || []).length;
-		if (count === 1) Transforms.setNodes(editor, { type: H1 });
-		else if (count === 2) Transforms.setNodes(editor, { type: H2 });
-		else if (count === 3) Transforms.setNodes(editor, { type: H3 });
-		else if (count === 4) Transforms.setNodes(editor, { type: H4 });
-		else if (count === 5) Transforms.setNodes(editor, { type: H5 });
-		else if (count === 6) Transforms.setNodes(editor, { type: H6 });
+				
+switch (count) {
+    case 1:{
+        Transforms.setNodes(editor, { type: H1 });
+        break;
+    }
+    case 2:{
+        Transforms.setNodes(editor, { type: H2 });
+        break;
+    }
+    case 3:{
+        Transforms.setNodes(editor, { type: H3 });
+        break;
+    }
+    case 4:{
+        Transforms.setNodes(editor, { type: H4 });
+        break;
+    }
+    case 5:{
+        Transforms.setNodes(editor, { type: H5 });
+        break;
+    }
+    case 6:{
+        Transforms.setNodes(editor, { type: H6 });
+        break;
+    }
+
+}
+
 
 		Editor.deleteBackward(editor, { unit: 'word' });
 		return;
